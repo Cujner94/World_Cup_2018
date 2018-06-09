@@ -33,7 +33,7 @@ class Teams extends React.Component{
 	
 	render(){
 		return(
-			<div>
+			<div className="container-div">
 				<ul>
 					{this.props.data.map(team => (
 						<li className="teams" key={team.code}>

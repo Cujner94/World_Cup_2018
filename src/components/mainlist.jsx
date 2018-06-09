@@ -8,7 +8,7 @@ class MainList extends React.Component{
 	
 	render(){
 		return(
-			<button onClick={this.logData}>This is MainList</button>
+			<button className="container-div" onClick={this.logData}>This is MainList</button>
 		)
 	}
 }

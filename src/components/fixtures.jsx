@@ -19,7 +19,7 @@ class Fixtures extends React.Component{
 	
 	render(){
 		return(
-			<div>
+			<div className="container-div">
 				<button onClick={this.getInfo}>Fixtures</button>
 				<ul>
 					{this.props.data.map(fixture => (
