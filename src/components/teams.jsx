@@ -39,7 +39,7 @@ class Teams extends React.Component{
 						<li className="teams" key={team.code}>
 							<p>{team.name}</p>
 							<button onClick={this.getPlayers} value={team._links.players.href}>Team</button>
-							<img width="100px" height="100px" src={team.crestUrl} alt="Team Logo"/>
+							<img className="teamImg" src={team.crestUrl} alt="Team Logo"/>
 						</li>
 					))}
 				</ul>

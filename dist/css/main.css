@@ -25,12 +25,28 @@ ol, ul {
 	list-style: none;
 }
 
+/* NAV COMPONENT */
+.nav-bar{
+	position: fixed;
+	background-color: #006eff98;
+	width: 100%;
+	height: 40px;
+}
+
+/* TEAM COMPONENTS */
 .teams{
 	margin: 20px 10px 20px 10px;
 	border: 3px solid black;
 	display: inline-block;
 }
 
+.teamImg{
+	width: 15%;
+	border-radius: 5px 5px 5px 5px;
+}
+
+
+/* PLAYER COMPONENTS */
 .overlay{
 	position: fixed;
 	width: 100%;
@@ -57,6 +73,9 @@ ol, ul {
 	background: white;
 }
 
+
+
+/* GROUP COMPONENTS */
 .group{
 	display: inline-block;
 	border: 2px solid black;
@@ -66,4 +85,18 @@ ol, ul {
 .group li{
 	margin: 20px 0 20px 0;
 	background-color: rgba(0, 0, 0, 0.2)	
+}
+
+
+
+
+
+/* FIXTURE COMPONENTS */
+.fixture{
+	border: 2px solid black;
+	display: inline-block;
+	margin: 5px;
+	min-height: 45px;
+	width: 200px;
+	text-align: center;
 }

@@ -4,7 +4,7 @@ class NavBar extends React.Component{
 	
 	render(){
 		return(
-			<nav>
+			<nav className="nav-bar">
 				<span>FIFA World Cup 2018</span>
 				<button onClick={this.props.getData} name="" id="home">Home</button>
 				<button onClick={this.props.getData} name="fixtures" id="fixtures">Fixtures</button>
