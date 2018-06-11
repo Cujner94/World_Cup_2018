@@ -7,14 +7,23 @@ class Group extends React.Component{
 	}
 	
 	render(){
+		let counter = 1;
+		
 		return(
-			<ul className="group">
-				<h3>Group : {this.props.groupName}</h3>
-				{this.props.group.map(el => (
-					<li>
-						<p>{el.team}</p>
-						<img width="100px" height="100px" src={el.crestURI} alt="Team"/>
-						<p>Points : {el.points}</p>
+			<ul onClick={this.getData} className="group-container">
+				<h3>Group {this.props.groupName}</h3>
+				<div className="group-statistic">
+					<p>#</p>
+					<p>Team</p>
+					<p>Goals</p>
+					<p>Points</p>
+				</div>
+				{this.props.group.sort((a,b)=> b.points-a.points).map(el => (
+					<li className="group-team" key={el.team}>
+						<p className="group-position">{counter++}.</p>
+						<p className="group-team-name">{el.team}</p>
+						<p className="group-goals">{el.goals}:{el.goals-el.goalDifference}</p>
+						<p className="group-points">{el.points}</p>
 					</li>
 				))}
 			</ul>
@@ -37,7 +46,7 @@ class Groups extends React.Component{
 	
 	render(){
 		return(
-			<div className="container-div">
+			<div className="container-div groups-container">
 				{this.createComponent()}
 			</div>
 		)

@@ -31,15 +31,31 @@ class Teams extends React.Component{
 		}
 	}
 	
+	addActive = (e) => {
+		e.currentTarget.classList.add("active");
+	}
+	
+	removeActive = (e) => {
+		e.currentTarget.classList.remove("active");
+	}
+	
+	isShowing = (e) =>{
+		console.log(e);
+	}
+	
 	render(){
 		return(
 			<div className="container-div">
-				<ul>
+				<ul className="team-container">
 					{this.props.data.map(team => (
-						<li className="teams" key={team.code}>
-							<p>{team.name}</p>
-							<button onClick={this.getPlayers} value={team._links.players.href}>Team</button>
-							<img className="teamImg" src={team.crestUrl} alt="Team Logo"/>
+						<li onMouseLeave={this.removeActive}  onMouseOver={this.addActive}  className="team-main" key={team.code}>
+							<div className="team-img-container">
+								<img className="teamImg" src={team.crestUrl} alt="Team Logo"/>
+							</div>
+							<div className="team-name">
+								<p>{team.name}</p>
+								<button className="team-button" onClick={this.getPlayers} value={team._links.players.href}>Team</button>
+							</div>
 						</li>
 					))}
 				</ul>
