@@ -13,7 +13,7 @@ class Group extends React.Component{
 	
 	getData = async (e) => {
 		const target = e.target.textContent;
-		const api_call = await fetch(`http://api.football-data.org/v1/competitions/467/fixtures`, {headers: { 'X-Auth-Token': API_KEY }});
+		const api_call = await fetch(`https://api.football-data.org/v1/competitions/467/fixtures`, {headers: { 'X-Auth-Token': API_KEY }});
 		const data = await api_call.json();
 		const filteredFixtures = await data.fixtures.filter(fixture => fixture.awayTeamName == target || fixture.homeTeamName == target)
 		

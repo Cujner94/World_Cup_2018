@@ -16,7 +16,7 @@ class App extends React.Component {
 	
 	getData = async (e) => {
 		const queryValue = e.target.name;
-		const api_call = await fetch(`http://api.football-data.org/v1/competitions/467/${queryValue}`, {headers: { 'X-Auth-Token': API_KEY }});
+		const api_call = await fetch(`https://api.football-data.org/v1/competitions/467/${queryValue}`, {headers: { 'X-Auth-Token': API_KEY }});
 		const data = await api_call.json();
 		
 		console.log(data);
