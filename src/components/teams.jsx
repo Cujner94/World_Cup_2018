@@ -1,5 +1,5 @@
 import React from 'react';
-import Players from './players.jsx';
+import Overlay from './overlay.jsx';
 
 const API_KEY = '658f018fb8a54c939b305707508ff79b';
 
@@ -60,7 +60,7 @@ class Teams extends React.Component{
 					))}
 				</ul>
 				{this.state.showPopup && this.state.players &&
-					<Players players={this.state.players} toggleOverlay={this.toggleOverlay} />
+					<Overlay players={this.state.players} toggleOverlay={this.toggleOverlay} />
 				}
 			</div>
 		)

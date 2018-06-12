@@ -8,7 +8,10 @@ class MainList extends React.Component{
 	
 	render(){
 		return(
-			<button className="container-div" onClick={this.logData}>This is MainList</button>
+			<div className="container-div main-container">
+				<h1 className="main-title">FIFA WORLD CUP</h1>
+				<h1 className="main-year">2018 - RUSSIA</h1>
+			</div>
 		)
 	}
 }

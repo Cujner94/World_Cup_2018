@@ -1,16 +1,59 @@
 import React from 'react';
+import Overlay from './overlay.jsx';
+
+const API_KEY = '658f018fb8a54c939b305707508ff79b';
+
 
 class Group extends React.Component{
 	
-	getData = () => {
-		console.log(this.props.group);
+	state = {
+		showPopup : false,
+		fixtures: undefined
+	};
+	
+	getData = async (e) => {
+		const target = e.target.textContent;
+		const api_call = await fetch(`http://api.football-data.org/v1/competitions/467/fixtures`, {headers: { 'X-Auth-Token': API_KEY }});
+		const data = await api_call.json();
+		const filteredFixtures = await data.fixtures.filter(fixture => fixture.awayTeamName == target || fixture.homeTeamName == target)
+		
+		this.toggleOverlay(e);
+		
+		console.log(filteredFixtures);
+		this.setState({
+			fixtures: filteredFixtures
+		})
+	};
+	
+	
+	getInfo = (e) => {
+		// console.log(e.currentTarget.textContent);
+		console.log(this.state);
 	}
+	
+	// getCountry = (e) => {
+	// 	// this.toggleOverlay(e);
+	// 	let fixtures = this.getData();
+		
+	// 	this.setState({
+	// 		country : e.target.textContent
+	// 	})
+	// }
+	
+	toggleOverlay = (e) => {
+		if (e.target === e.currentTarget) {
+			this.setState({
+				showPopup : !this.state.showPopup
+			})
+		}
+	}
+	
 	
 	render(){
 		let counter = 1;
 		
 		return(
-			<ul onClick={this.getData} className="group-container">
+			<ul className="group-container">
 				<h3>Group {this.props.groupName}</h3>
 				<div className="group-statistic">
 					<p>#</p>
@@ -21,11 +64,14 @@ class Group extends React.Component{
 				{this.props.group.sort((a,b)=> b.points-a.points).map(el => (
 					<li className="group-team" key={el.team}>
 						<p className="group-position">{counter++}.</p>
-						<p className="group-team-name">{el.team}</p>
+						<p onClick={this.getData} className="group-team-name">{el.team}</p>
 						<p className="group-goals">{el.goals}:{el.goals-el.goalDifference}</p>
 						<p className="group-points">{el.points}</p>
 					</li>
 				))}
+				{this.state.showPopup &&
+					<Overlay toggleOverlay={this.toggleOverlay} fixtures={this.state.fixtures} />
+				}
 			</ul>
 		)
 	}

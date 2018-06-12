@@ -26,13 +26,17 @@ class App extends React.Component {
 		})
 	};
 	
-	// TODO: MAKE DIV WRAP ALL THE OTHER DIVS SO BODY CAN HAVE STATIC BACKGROUND  
+	resetState = () =>{
+		this.setState({
+			data: undefined
+		})
+	}
 	
 	render() {
 		return(
 			<div>
-				<NavBar getData={this.getData}/>
-				{this.state.data && this.state.data.caption && <MainList data={this.state.data}/>}
+				<NavBar resetState={this.resetState} getData={this.getData}/>
+				{!this.state.data && <MainList data={this.state.data}/>}
 				{this.state.data && this.state.data.fixtures && <Fixtures data={this.state.data.fixtures}/>}
 				{this.state.data && this.state.data.standings && <Groups data={this.state.data.standings}/>}
 				{this.state.data && this.state.data.teams && <Teams data={this.state.data.teams.sort((a,b) => a.name > b.name ? 1 : -1)}/>}
