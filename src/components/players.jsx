@@ -8,11 +8,21 @@ class Players extends React.Component{
 		return(
 			<div onClick={this.props.toggleOverlay} className="overlay">
 				<div className="overlay_inner">
-					<button onClick={this.props.toggleOverlay}>Close</button>
-					<ul>
-						{this.props.players.map((player, index) => (
-							<li key={index}>
-								<b>{player.name}</b> - {player.position}
+					<button className="overlay-close" onClick={this.props.toggleOverlay}>X</button>
+					<ul className="player-container">
+						{this.props.players.sort( (a,b) => {
+							let first_name = a.name.split(" ");
+							let second_name = b.name.split(" ");
+							if (first_name[first_name.length-1] < second_name[second_name.length-1]) {
+								return -1;
+							}
+							if (first_name[first_name.length-1] > second_name[second_name.length-1]) {
+								return 1;
+							}
+							return 0;
+						} ).map((player, index) => (
+							<li className="player-name-pos" key={index}>
+								<b className="player-name">{player.name}</b> <span className="player-dot">-</span> <span className="player-pos">{player.position}</span>
 							</li>
 						))}
 					</ul>
