@@ -20,25 +20,11 @@ class Group extends React.Component{
 		this.toggleOverlay(e);
 		
 		console.log(filteredFixtures);
+		
 		this.setState({
 			fixtures: filteredFixtures
 		})
 	};
-	
-	
-	getInfo = (e) => {
-		// console.log(e.currentTarget.textContent);
-		console.log(this.state);
-	}
-	
-	// getCountry = (e) => {
-	// 	// this.toggleOverlay(e);
-	// 	let fixtures = this.getData();
-		
-	// 	this.setState({
-	// 		country : e.target.textContent
-	// 	})
-	// }
 	
 	toggleOverlay = (e) => {
 		if (e.target === e.currentTarget) {
@@ -47,7 +33,6 @@ class Group extends React.Component{
 			})
 		}
 	}
-	
 	
 	render(){
 		let counter = 1;

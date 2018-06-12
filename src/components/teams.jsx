@@ -39,10 +39,6 @@ class Teams extends React.Component{
 		e.currentTarget.classList.remove("active");
 	}
 	
-	isShowing = (e) =>{
-		console.log(e);
-	}
-	
 	render(){
 		return(
 			<div className="container-div">
@@ -59,7 +55,7 @@ class Teams extends React.Component{
 						</li>
 					))}
 				</ul>
-				{this.state.showPopup && this.state.players &&
+				{this.state.showPopup &&
 					<Overlay players={this.state.players} toggleOverlay={this.toggleOverlay} />
 				}
 			</div>

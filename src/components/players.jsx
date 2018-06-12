@@ -3,7 +3,6 @@ import React from 'react';
 class Players extends React.Component{
 	
 	sortPlayers = () => {
-		
 		let newArr = this.props.players.sort( (a,b) => {
 			let first_name = a.name.split(" ");
 			let second_name = b.name.split(" ");

@@ -6,11 +6,6 @@ class Fixtures extends React.Component{
 		fixtureDates : undefined
 	}
 	
-	getInfo = () => {
-		// console.log(this.props.data);
-		console.log(this.state);
-	}
-	
 	convertDate = (date) => {
 		const newDate = new Date(`${date}`);
 		const day = newDate.getDate();
